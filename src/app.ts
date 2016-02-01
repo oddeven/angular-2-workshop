@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'app',
@@ -8,7 +7,5 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
   `
 })
 export class App {
-  message: String  = 'Hello World!';
+  message: String = 'Hello World!';
 }
-
-bootstrap(App);
