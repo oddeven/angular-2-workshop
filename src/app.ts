@@ -1,7 +1,17 @@
 import {Component} from '@angular/core';
+import {Collapsible} from './collapsible';
 
 @Component({
   selector: 'app',
-  template: ``
+  template: `
+    <collapsible [content]="content" (opened)="onOpened($event)"></collapsible>
+  `,
+  directives: [Collapsible]
 })
-export class App {}
+export class App {
+  content: String = 'This is a simple collapsible content';
+
+  onOpened(collapsible: Collapsible) {
+    console.log('Collapsible was opened', collapsible);
+  }
+}
