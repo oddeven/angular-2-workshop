@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ContentChild} from '@angular/core';
 
 @Component({
   selector: 'collapsible-title',
@@ -31,10 +31,12 @@ export class Collapsible {
   @Input() title: String;
   @Output() opened: EventEmitter = new EventEmitter();
   @Output() closed: EventEmitter = new EventEmitter();
+  @ContentChild(CollapsibleTitle) collapsibleTitle: CollapsibleTitle;
   open: Boolean = false;
 
   toggle() {
     this.open = !this.open;
+    this.collapsibleTitle.toggleActive();
 
     if (this.open) {
       this.opened.next(this);
