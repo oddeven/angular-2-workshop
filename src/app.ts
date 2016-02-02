@@ -5,15 +5,15 @@ import {Collapsible} from './collapsible';
   selector: 'app',
   template: `
     <collapsible [title]="title"
-                 [content]="content"
                  (opened)="onOpened($event)"
-                 (closed)="onClosed($event)"></collapsible>
+                 (closed)="onClosed($event)">
+      <p>I'm regular content that will be inserted into the collapsible body</p>
+    </collapsible>
   `,
   directives: [Collapsible]
 })
 export class App {
-  title: String = 'Simple collapsible';
-  content: String = 'This is a simple collapsible content';
+  title = 'Simple collapsible';
 
   onOpened(collapsible: Collapsible) {
     console.log('Collapsible was opened', collapsible);
