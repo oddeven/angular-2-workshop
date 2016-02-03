@@ -1,15 +1,17 @@
-<<<<<<< HEAD
-import {Component} from '@angular/core';
-=======
-import {Component} from 'angular2/core';
->>>>>>> Added injection for calculator service
+import {Component, Inject} from '@angular/core';
 import {Calculator} from './calculator';
+import {LogService} from './log-service';
 
 @Component({
   selector: 'app',
   template: `
     <calculator></calculator>
   `,
-  directives: [Calculator]
+  directives: [Calculator],
+  providers: [LogService]
 })
-export class App {}
+export class App {
+  constructor(@Inject(LogService) logService: LogService) {
+    logService.log('Application started');
+  }
+}
