@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {CalculationService} from './calculation-service';
 
 @Component({
   selector: 'calculator',
+  providers: [CalculationService],
   template: `
     <div>
       <input #a (input)="calculate(a.value, b.value, operator.value)" type="number">
@@ -24,8 +26,13 @@ import {Component} from '@angular/core';
 })
 export class Calculator {
   result: Number = 0;
+  calculationService: CalculationService;
 
-  calculate(a, b, operator) {
+  constructor(@Inject(CalculationService) calculationService: CalculationService) {
+    this.calculationService = calculationService;
+  }
 
+  calculate(a: String, b: String, operator: String) {
+    this.result = this.calculationService[operator](+a, +b);
   }
 }

@@ -1,3 +1,6 @@
+import {Injectable} from '@angular/core';
+
+@Injectable()
 export class CalculationService {
   add(a: Number, b: Number): Number {
     return a + b;
