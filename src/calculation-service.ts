@@ -1,31 +1,38 @@
+import {Injectable} from '@angular/core';
 import {Injectable, Inject} from '@angular/core';
+import {Subject} from 'rxjs/Rx';
 import {LogService} from './log-service';
 
 @Injectable()
 export class CalculationService {
+  result: Subject = new Subject();
   logService: LogService;
 
   constructor(@Inject(LogService) logService: LogService) {
     this.logService = logService;
   }
 
-  add(a: Number, b: Number): Number {
+  add(a: Number, b: Number): Subject {
     this.logService.log(`Calculating ${a} plus ${b}`);
-    return a + b;
+    setTimeout(() => this.result.next(a + b), 1000);
+    return this.result;
   }
 
-  subtract(a: Number, b: Number): Number {
+  subtract(a: Number, b: Number): Subject {
     this.logService.log(`Calculating ${a} minus ${b}`);
-    return a - b;
+    setTimeout(() => this.result.next(a - b), 1000);
+    return this.result;
   }
 
-  multiply(a: Number, b: Number): Number {
+  multiply(a: Number, b: Number): Subject {
     this.logService.log(`Calculating ${a} multiplied with ${b}`);
-    return a * b;
+    setTimeout(() => this.result.next(a * b), 1000);
+    return this.result;
   }
 
-  divide(a: Number, b: Number): Number {
+  divide(a: Number, b: Number): Subject {
     this.logService.log(`Calculating ${a} divided by ${b}`);
-    return a / b;
+    setTimeout(() => this.result.next(a / b), 1000);
+    return this.result;
   }
 }

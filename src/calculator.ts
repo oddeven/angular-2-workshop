@@ -1,15 +1,17 @@
 import {Component, Inject} from '@angular/core';
+import {Control} from '@angular/common';
 import {CalculationService} from './calculation-service';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'calculator',
   providers: [CalculationService],
   template: `
     <div>
-      <input #a (input)="calculate(a.value, b.value, operator.value)" type="number">
+      <input [ngFormControl]="a" type="number">
     </div>
     <div>
-      <select #operator (input)="calculate(a.value, b.value, operator.value)">
+      <select [ngFormControl]="operator">
         <option value="add">+</option>
         <option value="subtract">-</option>
         <option value="multiply">*</option>
@@ -17,22 +19,30 @@ import {CalculationService} from './calculation-service';
       </select>
     </div>
     <div>
-      <input #b (input)="calculate(a.value, b.value, operator.value)" type="number">
+      <input [ngFormControl]="b" type="number">
     </div>
     <div>
-      Result: {{result}}
+      Result: {{result | async}}
     </div>
   `
 })
 export class Calculator {
-  result: Number = 0;
+  result: Observable;
   calculationService: CalculationService;
+  a: Control = new Control();
+  b: Control = new Control();
+  operator: Control = new Control();
 
   constructor(@Inject(CalculationService) calculationService: CalculationService) {
     this.calculationService = calculationService;
-  }
-
-  calculate(a: String, b: String, operator: String) {
-    this.result = this.calculationService[operator](+a, +b);
+    this.result = Observable
+      .combineLatest(this.operator.valueChanges,
+                     this.a.valueChanges,
+                     this.b.valueChanges)
+      .debounceTime(300)
+      .mergeMap(values => {
+        const [operator, a, b] = values;
+        return this.calculationService[operator](+a, +b);
+      });
   }
 }
