@@ -27,7 +27,7 @@ import {Observable} from 'rxjs/Rx';
   `
 })
 export class Calculator {
-  result: Observable;
+  result: Observable<Number>;
   calculationService: CalculationService;
   a: Control = new Control();
   b: Control = new Control();
