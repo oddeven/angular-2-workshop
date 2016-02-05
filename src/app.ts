@@ -1,19 +1,20 @@
 import {Component} from '@angular/core';
-import {ToUpperPipe} from './to-upper-pipe';
+import {BlacklistPipe} from './blacklist-pipe';
 
 @Component({
   selector: 'app',
   template: `
-    <p *ngFor="let message of messages; let i = index">{{i}}: {{message | toUpper}}</p>
+    <p *ngFor="let message of messages; let i = index">{{i}}: {{message | blacklist}}</p>
     <input #inp type="text">
-    <button (click)="addMessage(inp.value)">Add</button>
+    <button (click)="addMessage(inp)">Add</button>
   `,
-  pipes: [ToUpperPipe]
+  pipes: [BlacklistPipe]
 })
 export class App {
   messages: Array<String> = ['One', 'Two', 'Three'];
 
-  addMessage(message: String) {
-    this.messages.push(message);
+  addMessage(inputElement: HTMLInputElement) {
+    this.messages.push(inputElement.value);
+    inputElement.value = '';
   }
 }
