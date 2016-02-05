@@ -1,10 +1,11 @@
-import {Component, Input} from '@angular/core';
+import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
 
 @Component({
   selector: 'list-item',
   template: `
     {{item}}
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListItem {
   @Input() item: String;
