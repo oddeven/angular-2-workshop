@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input, Inject, ChangeDetectorRef} from '@angular/core';
+import {Component, ChangeDetectionStrategy, Input, Inject} from '@angular/core';
 import {ListItem} from './list-item';
 
 @Component({
@@ -11,24 +11,12 @@ import {ListItem} from './list-item';
     </ul>
   `,
   directives: [ListItem],
-  changeDetection: ChangeDetectionStrategy.Detached
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class List {
   @Input() list: Array<String>;
-  previousLength: Number = 0;
-  changeDetectorRef: changeDetectorRef;
 
-  constructor(@Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef) {
-    this.changeDetectorRef = changeDetectorRef;
-  }
-
-  ngDoCheck() {
-    if (this.list.length !== this.previousLength) {
-      console.log('List Do Check: Detected change');
-      this.changeDetectorRef.markForCheck();
-      this.previousLength = this.list.length;
-    } else {
-      console.log('List Do Check: No change');
-    }
+  ngOnChanges() {
+    console.log('List OnChanges');
   }
 }
