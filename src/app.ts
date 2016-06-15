@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -8,7 +8,7 @@ import {Component} from 'angular2/core';
            [attr.aria-invalid]="error"
            [class.is-valid]="!error"
            (input)="onInput($event.target.value)">
-    <p [textContent]="message"
+    <p [innerHTML]="message"
        [style.color]="error ? 'red' : 'green'"></p>
   `
 })
