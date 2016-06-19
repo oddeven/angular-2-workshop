@@ -1,11 +1,11 @@
-import {Component, Input, Inject} from 'angular2/core';
+import {Component, Input, Inject} from '@angular/core';
 import {ListItem} from './list-item';
 
 @Component({
   selector: 'list',
   template: `
     <ul>
-      <li *ngFor="#item of list">
+      <li *ngFor="let item of list">
         <list-item [item]="item"></list-item>
       </li>
     </ul>
