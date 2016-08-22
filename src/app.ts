@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
-import {BlacklistPipe} from './blacklist-pipe';
+import {ChartacterCountPipe} from './character-count-pipe';
 
 @Component({
   selector: 'app',
   template: `
-    <p *ngFor="let message of messages; let i = index">{{i}}: {{message | blacklist}}</p>
+    <p *ngFor="let message of messages; let i = index">{{i}}: {{message | charCount}}</p>
     <input #inp type="text">
     <button (click)="addMessage(inp)">Add</button>
   `,
-  pipes: [BlacklistPipe]
+  pipes: [ChartacterCountPipe]
 })
 export class App {
   messages: Array<String> = ['One', 'Two', 'Three'];
