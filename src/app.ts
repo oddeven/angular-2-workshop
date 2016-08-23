@@ -1,23 +1,16 @@
 import {Component} from '@angular/core';
-import {Collapsible, CollapsibleTitle} from './collapsible';
+import {TimerSignal} from './timer-signal';
+import {TimerSignalField} from './timer-signal-field';
 
 @Component({
   selector: 'app',
   template: `
-    <collapsible (opened)="onOpened($event)"
-                 (closed)="onClosed($event)">
-      <collapsible-title>I'm a title</collapsible-title>
-      <p>I'm regular content that will be inserted into the collapsible body</p>
-    </collapsible>
+    <timer-signal-field>
+      <timer-signal></timer-signal>
+    </timer-signal-field>
   `,
-  directives: [Collapsible, CollapsibleTitle]
+  directives: [TimerSignal, TimerSignalField]
 })
 export class App {
-  onOpened(collapsible: Collapsible) {
-    console.log('Collapsible was opened', collapsible);
-  }
 
-  onClosed(collapsible: Collapsible) {
-    console.log('Collapsible was closed', collapsible);
-  }
 }
