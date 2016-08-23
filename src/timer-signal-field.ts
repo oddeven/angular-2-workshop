@@ -1,4 +1,4 @@
-import {Component, ContentChild} from '@angular/core';
+import {Component, ContentChildren, QueryList} from '@angular/core';
 import {TimerSignal} from './timer-signal';
 
 @Component({
@@ -12,17 +12,19 @@ import {TimerSignal} from './timer-signal';
   `
 })
 export class TimerSignalField {
-  @ContentChild(TimerSignal) timerSignal: TimerSignal;
+  @ContentChildren(TimerSignal) timerSignals: QueryList<TimerSignal>;
 
   ngAfterContentInit() {
     this.turnOn();
   }
 
   turnOn() {
-    this.timerSignal.start();
+    this.timerSignals
+      .forEach((timerSignal: TimerSignal) => timerSignal.start());
   }
 
   turnOff() {
-    this.timerSignal.stop();
+    this.timerSignals
+      .forEach((timerSignal: TimerSignal) => timerSignal.stop());
   }
 }

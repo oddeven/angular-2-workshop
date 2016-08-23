@@ -7,6 +7,10 @@ import {TimerSignalField} from './timer-signal-field';
   template: `
     <timer-signal-field>
       <timer-signal></timer-signal>
+      <timer-signal></timer-signal>
+      <timer-signal></timer-signal>
+      <timer-signal></timer-signal>
+      <timer-signal></timer-signal>
     </timer-signal-field>
   `,
   directives: [TimerSignal, TimerSignalField]
