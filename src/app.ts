@@ -4,7 +4,8 @@ import {ChartacterCountPipe} from './character-count-pipe';
 @Component({
   selector: 'app',
   template: `
-    <p *ngFor="let message of messages; let i = index">{{i}}: {{message | charCount}}</p>
+    <p *ngFor="let message of messages; let i = index; let even = even"
+       [style.backgroundColor]="even ? 'lightgray' : null">{{i}}: {{message | charCount}}</p>
     <input #inp type="text">
     <button (click)="addMessage(inp)">Add</button>
   `,
