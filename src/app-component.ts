@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {ChartacterCountPipe} from './character-count-pipe';
 
 @Component({
   selector: 'app',
@@ -8,11 +7,10 @@ import {ChartacterCountPipe} from './character-count-pipe';
        [style.backgroundColor]="even ? 'lightgray' : null">{{i}}: {{message | charCount}}</p>
     <input #inp type="text">
     <button (click)="addMessage(inp)">Add</button>
-  `,
-  pipes: [ChartacterCountPipe]
+  `
 })
-export class App {
-  messages: Array<String> = ['One', 'Two', 'Three'];
+export class AppComponent {
+  messages: string[] = ['One', 'Two', 'Three'];
 
   addMessage(inputElement: HTMLInputElement) {
     this.messages.push(inputElement.value);
