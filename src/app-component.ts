@@ -13,10 +13,10 @@ import {Component} from '@angular/core';
        [style.display]="error ? 'block' : 'none'"></p>
   `
 })
-export class App {
-  value: String = '';
-  message: String = 'All is fine...';
-  error: Boolean = false;
+export class AppComponent {
+  value: string = '';
+  message: string = 'All is fine...';
+  error: boolean = false;
 
   onInput(value) {
     this.value = value;
