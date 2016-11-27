@@ -12,10 +12,10 @@ import {Component} from '@angular/core';
        [style.color]="error ? 'red' : 'green'"></p>
   `
 })
-export class App {
-  value: String = '';
-  message: String = 'All is fine...';
-  error: Boolean = false;
+export class AppComponent {
+  value: string = '';
+  message: string = 'All is fine...';
+  error: boolean = false;
 
   onInput(value) {
     this.value = value;
