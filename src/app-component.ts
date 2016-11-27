@@ -6,6 +6,6 @@ import {Component} from '@angular/core';
     <p>{{message}}</p>
   `
 })
-export class App {
-  message: String = 'Hello World!';
+export class AppComponent {
+  message: string = 'Hello World!';
 }

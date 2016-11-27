@@ -16,7 +16,8 @@
     '@angular/compiler',
     '@angular/core',
     '@angular/platform-browser',
-    '@angular/platform-browser-dynamic'
+    '@angular/platform-browser-dynamic',
+    '@angular/forms'
   ];
 
   packageNames.forEach(function(pkgName) {
