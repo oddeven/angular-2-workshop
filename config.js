@@ -1,30 +1,26 @@
 (function(global) {
 
-  var version = '@2.0.0-rc.1';
+  var version = '@2.2.3';
   var map = {
     'app': 'src',
-    'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6'
+    'rxjs': 'https://unpkg.com/rxjs@5.0.0-beta.12'
   };
 
   var packages = {
     'src': { main: 'main.ts',  defaultExtension: 'ts' },
-    'rxjs': { defaultExtension: 'js' },
-    'angular2-in-memory-web-api': { defaultExtension: 'js' }
+    'rxjs': { defaultExtension: 'js' }
   };
 
   var packageNames = [
     '@angular/common',
     '@angular/compiler',
     '@angular/core',
-    '@angular/http',
-    '@angular/router',
     '@angular/platform-browser',
-    '@angular/platform-browser-dynamic',
-    '@angular/testing'
+    '@angular/platform-browser-dynamic'
   ];
 
   packageNames.forEach(function(pkgName) {
-    map[pkgName] = 'https://npmcdn.com/' + pkgName + version;
+    map[pkgName] = 'https://unpkg.com/' + pkgName + version;
   });
 
   packageNames.forEach(function(pkgName) {
