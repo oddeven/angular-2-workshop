@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
          style="background-color: red; border-radius: 50%; width: 50px; height: 50px; margin: 5px"></div>
   `
 })
-export class TimerSignal {
+export class TimerSignalComponent {
   opacity: number = 0;
   currentInterval: any;
 
