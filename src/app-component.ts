@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Collapsible} from './collapsible';
+import {CollapsibleComponent} from './collapsible-component';
 
 @Component({
   selector: 'app',
@@ -8,18 +8,17 @@ import {Collapsible} from './collapsible';
                  [content]="content"
                  (opened)="onOpened($event)"
                  (closed)="onClosed($event)"></collapsible>
-  `,
-  directives: [Collapsible]
+  `
 })
-export class App {
-  title: String = 'Simple collapsible';
-  content: String = 'This is a simple collapsible content';
+export class AppComponent {
+  title: string = 'Simple collapsible';
+  content: string = 'This is a simple collapsible content';
 
-  onOpened(collapsible: Collapsible) {
+  onOpened(collapsible: CollapsibleComponent) {
     console.log('Collapsible was opened', collapsible);
   }
 
-  onClosed(collapsible: Collapsible) {
+  onClosed(collapsible: CollapsibleComponent) {
     console.log('Collapsible was closed', collapsible);
   }
 }
