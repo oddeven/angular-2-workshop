@@ -9,16 +9,16 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
     </div>
   `
 })
-export class Collapsible {
-  @Input() content: String;
+export class CollapsibleComponent {
+  @Input() content: string;
   @Output() opened: EventEmitter = new EventEmitter();
-  open: Boolean = false;
+  open: boolean = false;
 
   toggle() {
     this.open = !this.open;
 
     if (this.open) {
-      this.opened.next(this);
+      this.opened.emit(this);
     }
   }
 }
