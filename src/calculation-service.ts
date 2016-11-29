@@ -9,22 +9,22 @@ export class CalculationService {
     this.logService = logService;
   }
 
-  add(a: Number, b: Number): Number {
+  add(a: number, b: number): number {
     this.logService.log(`Calculating ${a} plus ${b}`);
     return a + b;
   }
 
-  subtract(a: Number, b: Number): Number {
+  subtract(a: number, b: number): number {
     this.logService.log(`Calculating ${a} minus ${b}`);
     return a - b;
   }
 
-  multiply(a: Number, b: Number): Number {
+  multiply(a: number, b: number): number {
     this.logService.log(`Calculating ${a} multiplied with ${b}`);
     return a * b;
   }
 
-  divide(a: Number, b: Number): Number {
+  divide(a: number, b: number): number {
     this.logService.log(`Calculating ${a} divided by ${b}`);
     return a / b;
   }
