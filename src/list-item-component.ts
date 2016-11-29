@@ -7,12 +7,12 @@ import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListItem {
-  @Input() item: String;
+export class ListItemComponent {
+  @Input() item: string;
 
   ngOnChanges(inputChanges) {
     if (inputChanges.item) {
-      console.log('ListItem OnChanges', inputChanges.item);
+      console.log('ListItemComponent OnChanges', inputChanges.item);
     }
   }
 }

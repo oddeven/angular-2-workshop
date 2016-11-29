@@ -1,5 +1,4 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {List} from './list';
 
 @Component({
   selector: 'app',
@@ -21,13 +20,12 @@ import {List} from './list';
       <button (click)="clear()">Clear</button>
     </div>
   `,
-  directives: [List],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class App {
-  people: Array<String> = ['Andreas', 'Gion'];
+export class AppComponent {
+  people: string[] = ['Andreas', 'Gion'];
 
-  add(name: String) {
+  add(name: string) {
     this.people = this.people.slice();
     this.people.push(name);
   }
@@ -36,7 +34,7 @@ export class App {
     this.people = [];
   }
 
-  edit(index: String, name: String) {
+  edit(index: string, name: string) {
     this.people = this.people.slice();
     this.people[index] = name;
   }
