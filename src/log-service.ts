@@ -6,7 +6,7 @@ export class LogService {
     this.loggerNr = LogService.globalLoggerNr++;
   }
 
-  log(message: String) {
+  log(message: string) {
     console.log(`Logger(${this.loggerNr}): ${message}`);
   }
 }

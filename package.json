@@ -2,5 +2,15 @@
   "name": "angular-2-workshop",
   "version": "1.0.0",
   "author": "oddEVEN AG",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@angular/core": "2.2.3",
+    "@angular/common": "2.2.3",
+    "@angular/compiler": "2.2.3",
+    "@angular/platform-browser": "2.2.3",
+    "@angular/platform-browser-dynamic": "2.2.3",
+    "@angular/forms": "2.2.3",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.21"
+  }
 }
