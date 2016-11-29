@@ -9,9 +9,9 @@ import {Component, Input} from '@angular/core';
     </div>
   `
 })
-export class Collapsible {
-  @Input() title: String;
-  open: Boolean = false;
+export class CollapsibleComponent {
+  @Input() title: string;
+  open: boolean = false;
 
   toggle() {
     this.open = !this.open;
