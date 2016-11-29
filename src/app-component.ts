@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {TimerSignal} from './timer-signal';
-import {TimerSignalField} from './timer-signal-field';
 
 @Component({
   selector: 'app',
@@ -12,9 +10,8 @@ import {TimerSignalField} from './timer-signal-field';
       <timer-signal></timer-signal>
       <timer-signal></timer-signal>
     </timer-signal-field>
-  `,
-  directives: [TimerSignal, TimerSignalField]
+  `
 })
-export class App {
+export class AppComponent {
 
 }
