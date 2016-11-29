@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {List} from './list';
 
 @Component({
   selector: 'app',
@@ -20,13 +19,12 @@ import {List} from './list';
       <h3>Clear</h3>
       <button (click)="clear()">Clear</button>
     </div>
-  `,
-  directives: [List]
+  `
 })
-export class App {
-  people: Array<String> = ['Andreas', 'Gion'];
+export class AppComponent {
+  people: string[] = ['Andreas', 'Gion'];
 
-  add(name: String) {
+  add(name: string) {
     this.people.push(name);
   }
 
@@ -34,7 +32,7 @@ export class App {
     this.people.length = 0;
   }
 
-  edit(index: String, name: String) {
+  edit(index: string, name: string) {
     this.people[index] = name;
   }
 }

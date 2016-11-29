@@ -1,5 +1,4 @@
 import {Component, ChangeDetectionStrategy, Input, Inject, ChangeDetectorRef} from '@angular/core';
-import {ListItem} from './list-item';
 
 @Component({
   selector: 'list',
@@ -10,13 +9,12 @@ import {ListItem} from './list-item';
       </li>
     </ul>
   `,
-  directives: [ListItem],
-  changeDetection: ChangeDetectionStrategy.Detached
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class List {
-  @Input() list: Array<String>;
-  previousLength: Number = 0;
-  changeDetectorRef: changeDetectorRef;
+export class ListComponent {
+  @Input() list: string[];
+  previousLength: number = 0;
+  changeDetectorRef: ChangeDetectorRef;
 
   constructor(@Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef) {
     this.changeDetectorRef = changeDetectorRef;
