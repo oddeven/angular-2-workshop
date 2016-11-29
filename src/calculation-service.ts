@@ -12,25 +12,25 @@ export class CalculationService {
     this.logService = logService;
   }
 
-  add(a: Number, b: Number): Subject {
+  add(a: number, b: number): Subject {
     this.logService.log(`Calculating ${a} plus ${b}`);
     setTimeout(() => this.result.next(a + b), 1000);
     return this.result;
   }
 
-  subtract(a: Number, b: Number): Subject {
+  subtract(a: number, b: number): Subject {
     this.logService.log(`Calculating ${a} minus ${b}`);
     setTimeout(() => this.result.next(a - b), 1000);
     return this.result;
   }
 
-  multiply(a: Number, b: Number): Subject {
+  multiply(a: number, b: number): Subject {
     this.logService.log(`Calculating ${a} multiplied with ${b}`);
     setTimeout(() => this.result.next(a * b), 1000);
     return this.result;
   }
 
-  divide(a: Number, b: Number): Subject {
+  divide(a: number, b: number): Subject {
     this.logService.log(`Calculating ${a} divided by ${b}`);
     setTimeout(() => this.result.next(a / b), 1000);
     return this.result;

@@ -1,16 +1,13 @@
 import {Component, Inject} from '@angular/core';
-import {Calculator} from './calculator';
 import {LogService} from './log-service';
 
 @Component({
   selector: 'app',
   template: `
     <calculator></calculator>
-  `,
-  directives: [Calculator],
-  providers: [LogService]
+  `
 })
-export class App {
+export class AppComponent {
   constructor(@Inject(LogService) logService: LogService) {
     logService.log('Application started');
   }
