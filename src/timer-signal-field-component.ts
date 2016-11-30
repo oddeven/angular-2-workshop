@@ -13,16 +13,21 @@ import {TimerSignalComponent} from './timer-signal-component';
 })
 export class TimerSignalFieldComponent {
   @ContentChild(TimerSignalComponent) timerSignal: TimerSignalComponent;
+  isOn: boolean;
 
   ngAfterContentInit() {
     this.turnOn();
   }
 
   turnOn() {
-    this.timerSignal.start();
+    if(!this.isOn) {
+      this.timerSignal.start();
+      this.isOn = true;
+    }
   }
 
   turnOff() {
     this.timerSignal.stop();
+    this.isOn = false;
   }
 }
