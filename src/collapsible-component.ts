@@ -11,7 +11,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 })
 export class CollapsibleComponent {
   @Input() content: string;
-  @Output() opened: EventEmitter = new EventEmitter();
+  @Output() opened: EventEmitter<CollapsibleComponent> = new EventEmitter();
   open: boolean = false;
 
   toggle() {
