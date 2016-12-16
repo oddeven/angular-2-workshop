@@ -11,7 +11,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
   messages: string[] = ['One', 'Two', 'Three'];
 
-  addMessage(message: String) {
+  addMessage(message: string) {
     this.messages.push(message);
   }
 }
